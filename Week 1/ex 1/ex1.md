@@ -61,13 +61,8 @@ chmod 744 /keiken/del
 
 ## 3. Does it make sense to be able to assign such rights?
 
-In my opinion both of these rights combinations of rights don't really make sense because:
-
-- If the user can edit a file they can empty its content, making it useless except in the case of a program only needing its existence.
-- If the user can delete a file, it would make no sense to restrict write access except to prevent malicious code injection that could be executed with that file.
-
-Other, less particuliar permissions, such as providing different access levels to group and others, are really important as they allow to manage permissions on specific files without giving too much rights (for example by giving root access). It also allows faster management as you can change permissions for an entire group instead of a single user by combining chmod with chgroup and or usermod -a -G.
+I can think of one case where the second assignments could be useful, which is for logging data.
 
 ## 4. What are the practical consequences of this experience?
 
-See previous answers, but moreover, I discovered that directories permissions and particulary the sticky bit are the determining factors for file deletion.
+understanding more the purpose of each permission.
