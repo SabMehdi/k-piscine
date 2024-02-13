@@ -5,15 +5,15 @@ The files permissions are maneged by the directory that contains it, and the use
 ## 2. Create a file that your colleague can edit but not delete and another he can delete but not edit
 ```
 sudo usermod -aG keiken saber
-
-``````
-sudo usermod -aG keiken user2
-
 ```
+
+sudo usermod -aG keiken user2
+```
+
 ```
 mkdir keiken
-
 ```
+
 ```
 sudo chgrp keiken keiken
 ```
@@ -21,9 +21,11 @@ sudo chgrp keiken keiken
 ```
 cd keiken
 ```
+
 ```
 touch edit
 ```
+
 ```
 chmod 764
 ```
@@ -31,16 +33,18 @@ chmod 764
 ```
 chmod 775 /home/saber/keiken
 ```
+
 ```
 touch del
 ```
 ```
 chmod 774 /home/saber/keiken
 ```
+
 ```
 chmod 744 /keiken/del
 ```
-```
+
 
 
 
