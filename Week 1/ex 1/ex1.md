@@ -23,6 +23,11 @@ sudo chgrp keiken keiken
 
 ```bash
 
+chmod +t keiken
+```
+
+```bash
+
 cd keiken
 ```
 
@@ -33,13 +38,9 @@ touch edit
 
 ```bash
 
-chmod 764
+chmod 764 edit
 ```
 
-```bash
-
-chmod 775 /home/saber/keiken
-```
 
 ```bash
 
