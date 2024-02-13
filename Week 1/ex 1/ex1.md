@@ -6,7 +6,7 @@ The files permissions are maneged by the directory that contains it, and the use
 ```bash
 
 sudo usermod -aG keiken saber
-
+```
 ```bash
 sudo usermod -aG keiken user2
 ```
