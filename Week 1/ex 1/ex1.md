@@ -55,7 +55,7 @@ chmod 774 /home/saber/keiken
 
 chmod 744 /keiken/del
 ```
-
+![Alt text](ex1.png)
 
 
 
