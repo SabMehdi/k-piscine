@@ -43,7 +43,7 @@ find /usr/share/doc -type f -name 'README' | wc -l
 ## 7. Make a list of files in your home directory that were changed less that 10 hours ago, using grep, but leave out directories.
 ```bash
 
-find / -type f -mmin -000
+find / -type f -mmin -600
 ```
 ![Alt text](image-5.png)
 ## 8. Can you find an alternative for wc -l, using grep?
