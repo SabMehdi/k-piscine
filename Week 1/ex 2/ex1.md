@@ -9,8 +9,10 @@ find /etc -name 'rc*'
 ## 2. Find all regular files belonging to you, output the result to the file /tmp/findme, and redirect errors to /dev/null:
 
 ```bash
-find / -type f -user yourusername > /tmp/findme 2>/dev/null
+find / -type f -user saber > /tmp/findme 2>/dev/null
 ```
+
+![Alt text](image-1.png)
 ## 3. Find all subdirectories of /etc:
 
 
@@ -18,6 +20,8 @@ find / -type f -user yourusername > /tmp/findme 2>/dev/null
 
 find /etc -type d
 ```
+
+![Alt text](image-2.png)
 ## 4. Find all regular files under your home directory that have not been modified in the last 10 days:
 
 ```bash
