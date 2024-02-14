@@ -60,7 +60,7 @@ def main(num_threads):
 
 
 if __name__ == "__main__":
-    num_threads = 5 # Example: creating 5 threads
+    num_threads = 4
     main(num_threads)
 
 ```
