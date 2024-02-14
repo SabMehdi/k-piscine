@@ -28,8 +28,8 @@ find /etc -type d
 
 find /home/saber -type f -mtime +10
 ```
-## 1. Find all files under the /etc directory whose names begin with rc:
-
+![Alt text](image-3.png)
+## 5. The 10 largest file in your computer
 ```bash
 
 
