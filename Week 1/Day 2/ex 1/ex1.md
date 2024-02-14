@@ -47,14 +47,17 @@ find / -type f -mmin -000
 ```
 ![Alt text](image-5.png)
 ## 8. Can you find an alternative for wc -l, using grep?
+used in question 4
 ```bash
-
+grep -c 
 ```
 ## 9. Using the file system table (/etc/fstab for instance), list local disk devices.
 ```bash
+grep '^/dev/' /etc/fstab
 
 ```
 ## 10. Display configuration files in /etc that contain numbers in their names.
 ```bash
-
+find /etc -type f -name '*[0-9]*'
 ```
+![Alt text](image-6.png)
