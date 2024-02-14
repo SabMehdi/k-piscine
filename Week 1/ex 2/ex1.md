@@ -31,14 +31,7 @@ find /home/saber -type f -mtime +10
 ![Alt text](image-3.png)
 ## 5. The 10 largest file in your computer
 ```bash
-
+find / -type f | sort -r | head -n 10
 
 ```
-
-## 3. Does it make sense to be able to assign such rights?
-
-I can think of one case where the second assignments could be useful, which is for logging data.
-
-## 4. What are the practical consequences of this experience?
-
-understanding more the purpose of each permission.
+![Alt text](image-4.png)
