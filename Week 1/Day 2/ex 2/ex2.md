@@ -64,4 +64,4 @@ if __name__ == "__main__":
     main(num_threads)
 
 ```
-![Alt text](image-4.png)
+![Alt text](image-5.png)
