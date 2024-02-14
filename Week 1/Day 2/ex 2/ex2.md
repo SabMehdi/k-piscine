@@ -60,7 +60,7 @@ def main(num_threads):
 
 
 if __name__ == "__main__":
-    num_threads = int(input("Enter the number of threads: "))
+    num_threads = int(input("num of threads: "))
     main(num_threads)
 
 ```
