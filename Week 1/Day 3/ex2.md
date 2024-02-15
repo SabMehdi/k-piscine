@@ -21,4 +21,5 @@ set arp.spoof.targets 172.30.144.159.24
 
 arp.spoof on
 ```
+I have managed to track all requests comming from the ubunto vm on the left side as shown in the image bellow.
 ![Alt text](image.png)
