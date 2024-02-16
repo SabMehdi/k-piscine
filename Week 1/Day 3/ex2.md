@@ -63,9 +63,14 @@ To transfer file from machine1 to machine2:
 scp test1 machine1@192.168.1.10:/home/machine1
 ```
 ![Alt text](image-4.png)
+
 ## 1. Install a bind service and create a local domain on machine 1 , using ssh from machine 1.
 yum install bind bind-utils
+```bash
+systemctl start named
+systemctl enable named
 
+```
 ## 1. Install an http server (httpd) and start it with a default index page that contains : welcome to keiken
 
 ## 2. Create a virtual interface with a special IP not in the same network as the bridge
@@ -73,7 +78,25 @@ yum install bind bind-utils
 ## 3. Make sure that the http server listens to this IP and not the default bridge one.
 
 ## 4. On the bind server create a zone file that manages  the  k-piscine.keiken.com  with a A record that points to this IP.
+Pour valider le zone file
+```bash
+sudo named-checkzone k-piscine.keiken.com /var/named/k.piscine.keiken.com.zone
 
+```
+restart bind
+```bash
+systemctl restart named.service
+
+```
+
+![Alt text](image-5.png)
+![Alt text](image-6.png)
+and check it's status
+```bash
+systemctl status named.service
+
+```
+![Alt text](image-7.png)
 ## 6. Configure the routing tables of both machines so that the trafic is forwarded to the right eth adapter - hint : allow forwarding on machine 1 .
 
 ## 7. Configure machine 2 dns to point to the bind.
