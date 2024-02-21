@@ -1,7 +1,7 @@
 package com.example;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import main.java.com.example.HelloService;
+import com.example.HelloService;
 
 public class App {
     public static void main(String[] args) {
