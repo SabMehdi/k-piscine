@@ -7,5 +7,4 @@ import com.example.demo.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    // No need to declare findById and save methods here, they are inherited from JpaRepository
 }

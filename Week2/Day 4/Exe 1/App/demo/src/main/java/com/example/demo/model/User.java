@@ -3,6 +3,7 @@ package com.example.demo.model;
 import javax.persistence.*;
 
 @Entity
+
 @Table(name = "users")
 public class User {
     @Id
@@ -22,7 +23,12 @@ public class User {
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
+    public int getUserId() {
+        return userId;
+    }
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
 
-    // getters and setters
 }

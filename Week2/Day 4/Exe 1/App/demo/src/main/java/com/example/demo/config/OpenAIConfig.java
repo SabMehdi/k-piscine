@@ -9,7 +9,6 @@ public class OpenAIConfig {
 
     private String apiKey;
 
-    // getter and setter for apiKey
     public String getApiKey() {
         return apiKey;
     }

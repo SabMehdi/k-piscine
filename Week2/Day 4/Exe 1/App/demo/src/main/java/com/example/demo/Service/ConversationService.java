@@ -1,38 +1,40 @@
 package com.example.demo.Service;
 
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
-
+import com.example.demo.model.Conversation;
+import com.example.demo.model.User;
+import com.example.demo.repository.ConversationRepository;
+import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.example.demo.model.Conversation;
-import com.example.demo.repository.ConversationRepository;
 
 @Service
 public class ConversationService {
 
     private final ConversationRepository conversationRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public ConversationService(ConversationRepository conversationRepository) {
+    public ConversationService(ConversationRepository conversationRepository, UserRepository userRepository) {
         this.conversationRepository = conversationRepository;
+        this.userRepository = userRepository;
     }
 
-    public Conversation updateConversation(int conversationId, LocalDateTime newStartedAt) {
-        Optional<Conversation> optionalConversation = conversationRepository.findById(conversationId);
-        if (optionalConversation.isPresent()) {
-            Conversation conversation = optionalConversation.get();
-            conversation.setStartedAt(newStartedAt);
-            return conversationRepository.save(conversation);
-        } else {
-            // Handle the case where the conversation with given conversationId doesn't exist
-            return null;
+    public Conversation createConversation(Conversation conversation) {
+        int userId = conversation.getUser().getUserId();
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+            throw new IllegalArgumentException("User with ID " + userId + " does not exist");
         }
-    }
-    public List<Conversation> getAllConversationsByUser(int userId) {
-        return conversationRepository.findByUser_UserId(userId);
+
+        conversation.setUser(user);
+        return conversationRepository.save(conversation);
     }
 
+    public Conversation getConversationById(int conversationId) {
+        return conversationRepository.findById(conversationId).orElse(null);
+    }
+
+    public boolean doesUserExist(int userId) {
+        return userRepository.existsById(userId);
+    }
 }

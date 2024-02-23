@@ -22,5 +22,4 @@ public class UserController {
         return userService.createUser(user);
     }
 
-    // Add more methods for handling other CRUD operations on users
 }

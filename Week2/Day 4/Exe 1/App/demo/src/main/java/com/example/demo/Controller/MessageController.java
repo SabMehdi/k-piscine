@@ -16,10 +16,8 @@ public class MessageController {
         this.messageService = messageService;
     }
 
-    @PutMapping("/{messageId}")
-    public Message updateMessage(@PathVariable int messageId, @RequestBody Message updatedMessage) {
-        return messageService.updateMessage(messageId, updatedMessage.getContent(), updatedMessage.getSender());
+    @PostMapping
+    public Message createMessage(@RequestBody Message message) {
+        return messageService.createMessage(message);
     }
-
-    // Add more methods to handle other API endpoints related to messages
 }

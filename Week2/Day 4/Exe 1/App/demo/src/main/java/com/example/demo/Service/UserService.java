@@ -26,13 +26,16 @@ public class UserService {
             user.setPasswordHash(newPasswordHash);
             return userRepository.save(user);
         } else {
-            // Handle the case where the user with given userId doesn't exist
             return null;
         }
     }
     public User createUser(User user) {
-        // You can add validation or business logic here before saving the user
         return userRepository.save(user);
+    }
+
+    public User getUserById(int userId) {
+        Optional<User> optionalUser = userRepository.findById(userId);
+        return optionalUser.orElse(null);
     }
 
 }

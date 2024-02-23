@@ -2,45 +2,37 @@ package com.example.demo.Controller;
 
 import com.example.demo.Service.ConversationService;
 import com.example.demo.model.Conversation;
-import com.example.demo.provider.OpenAIProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/conversations")
 public class ConversationController {
 
     private final ConversationService conversationService;
-    private final OpenAIProvider openAIProvider;
 
- /*    @Autowired
+    @Autowired
     public ConversationController(ConversationService conversationService) {
         this.conversationService = conversationService;
-        this.openAIProvider = null;
-    } */
-
-    @GetMapping("/{userId}")
-    public List<Conversation> getAllConversationsByUser(@PathVariable int userId) {
-        return conversationService.getAllConversationsByUser(userId);
-    }
-    
-    @Autowired
-    public ConversationController(ConversationService conversationService, OpenAIProvider openAIProvider) {
-        this.conversationService = conversationService;
-        this.openAIProvider = openAIProvider;
     }
 
-  
-
-    // Add more methods to handle other API endpoints related to conversations
-
-    @PostMapping("/ask-openai")
-    public String askOpenAI(@RequestBody String prompt) {
-        if (openAIProvider == null) {
-            return "OpenAIProvider not available";
+    @PostMapping
+    public ResponseEntity<?> createConversation(@RequestBody Conversation conversation) {
+        int userId = conversation.getUser().getUserId();
+        if (!conversationService.doesUserExist(userId)) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("User with ID " + userId + " does not exist");
         }
-        return openAIProvider.askOpenAI(prompt);
+
+
+        Conversation createdConversation = conversationService.createConversation(conversation);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdConversation);
+    }
+
+    @GetMapping("/{conversationId}")
+    public Conversation getConversationById(@PathVariable int conversationId) {
+        return conversationService.getConversationById(conversationId);
     }
 }
