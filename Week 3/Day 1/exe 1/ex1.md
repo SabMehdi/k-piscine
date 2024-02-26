@@ -4,7 +4,6 @@
 ip netns add ns1
 ip netns add ns2
 ```
-![Alt text](image.png)
 ## 2. Create the Bridge
 ```bash
 
