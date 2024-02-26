@@ -12,12 +12,12 @@ sudo systemctl start docker
 
 ```
 
-## 3. Run a Docker Container
+## 3. Run a Docker Container (replace docker by podman)
 ```bash
 sudo docker run -d --name mytestcontainer ubuntu sleep 3600
 
 ```
-## 4. Explore Docker Processes
+## 4. Explore Docker Processes (replace docker by podman)
 ```bash
 
 pstree -p | grep docker
@@ -25,15 +25,16 @@ pstree -p | grep docker
 
 ```
 
-## 5.Explore Docker Processes:
+## List Podman Processes
 ```bash
 
-pstree -p | grep docker
+ps aux | grep -e podman -e conmon
 
 
 ```
 
-## 6.Explore Process Trees
+
+## 6.list Process Trees
 
 ```bash
 
