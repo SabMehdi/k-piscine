@@ -1,6 +1,6 @@
 ## Test your skills: The box model - Learn web development | MDN 
 
-## Task 1
+Task 1
 ![alt text](image.png)
 ## Task 2
 
