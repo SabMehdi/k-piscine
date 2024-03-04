@@ -25,3 +25,13 @@
 >Task 3
 
 ![alt text](image-5.png)
+
+## Positioning - Learn web development | MDN
+
+>Task 1
+
+![alt text](image-6.png)
+
+>Task 2
+
+![alt text](image-7.png)
